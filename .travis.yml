@@ -1,19 +1,16 @@
 language: java
-
 env:
   global:
   - CXX=g++-4.8
   - CF_APP=hello-world
+  - secure: iFWUHZamYWsFVbOmR/hGBkJbW6370otzPEDk9GnjUxjcpDX6wu1Sx81iPXDlFfDUCkBZDTJB9zHgZPxF1lUbnQw0bTJD0VlZZJi4mGz5P1gWiCKntFUBad/JLvqAexqCK0gLK7gJahCU4XN+6chT279BMTg2JEnJl67qhvJovVk6136S1rpjD598uw6AcFKfhL45E3WMGIWoeZwUuEkXBQsBcTqSvrP5uPBZ7qSbx/0fWrVN+zjSvhVdZxjpPKFVRh4I68ENqoSbe/FKBdPevx5ggaZpkJRDLj0OV+Sz8qdS3PFPvOtuC5uTcEuoNmd8SXkQRo5WLDl54VnhGVLYY9Ro9iMqMf15D7cgaMXYNp6NovA/pMRfbieo1EXZ6tsimQ/kGJ+diBt8j/WEDvPIpqLt24C43ASPalJQteAFq9bLwTKJ8hyLmD9TBQKM3VwEctatQqkaNA0MfoNNK/rXuVDnJgBakuttOpEpFbql5fUBhkj5LP80CTIcE9Dybd0t+Dr2eqXAVkANSsICUH/Mo0cG9dEHs/BWea/pD+bDM9urXduCOAr/SYWS57beXS4sfCedQXgT8ss6OaXw07k+TSHyW+YQNYauIpdLbojyUghDNht8PQ421N1ABpE2IY5gc7VDKyNrdW0b7HD0J7AjxjlgLSwtqXIaUBBqU5w1l60=
+  - secure: a26R60P9sgD6jtrcyUSDCm3aS3V+3yDjLhiPqilZPCETEiiwArgfAy0MsE5KNBzVqJLKAR7rnPHx8kjLpgse4zjoqorpLFB9QwZuU1gzRfSAM1212jGcZqexU1mCKCEi+rnu3KmnvNa1ulTCbHx/DF0VhidtHKPT59TZAAK1Dz+c+bGrtkJfIw/tYSnwsJF38+WLNJcRAFK3DVGaFs2xuY6K5FCO23gThVHXj1DdcQCO7JAky/pndNhfP2N31ZGpbaJgCboiuXr13G5Me6DDPX1HHADXVrt4AwwKw2uI4G6pKfYC9v1fhuAv/YDloM6eb4GIoOxNzQB/7RmZ88ZwWeeoSfIbxeV2GdQSKXycKyT83sXxht3tRRaveQ+9iUiuE4h8eg6/854DiqGKgnapXznK0qQ6DVCq7qzOVeXGbY2c7n1h/wApgkPSFo8N6KqzNHbGCgNU7LgB+y1Wb7tr9D+7MmYxhvi3gdGiaRfeSTaT9g/EdXB4LkdCJmTy4SxGExtVom/g5otgRZ9IVQfSWx41BzstUfxSN4WEcl+CbuJzvB7F2yZq8ppucZuLC2zMQHt2lNtefJyVeND4Elk9ium80B7ElHuV3mfd8C2/izWbPxmT6tPec8fKxAmLEXCBT9IZur13dcRCQj6nw8VxJHmtfQ6WavdFcWEpZG407dE=
 script:
 - sudo mkdir /mvnbuild
-- mvn -Dmaven.wagon.http.ssl.insecure=true -Dmaven.wagon.http.ssl.allowall=true -P cloud-integration-tests clean install -Denv.CF_API=$CF_API -Denv.CF_ORGANIZATION=$CF_ORGANIZATION -Denv.CF_SPACE=$CF_SPACE -Denv.CF_USERNAME=$CF_USERNAME -Denv.CF_PASSWORD=$CF_PASSWORD
-
-- 'if [ $TRAVIS_TEST_RESULT -eq 0 ]; then
- chmod +x ./cf_blue_green_travis.sh;
- sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test;
- sudo apt-get -qq update;
- sudo apt-get -qq install g++-4.8;
- sudo ./cf_blue_green_travis.sh;
-fi'
-
+- mvn -Dmaven.wagon.http.ssl.insecure=true -Dmaven.wagon.http.ssl.allowall=true -P
+  cloud-integration-tests clean install -Denv.CF_API=$CF_API -Denv.CF_ORGANIZATION=$CF_ORGANIZATION
+  -Denv.CF_SPACE=$CF_SPACE -Denv.CF_USERNAME=$CF_USERNAME -Denv.CF_PASSWORD=$CF_PASSWORD
+- if [ $TRAVIS_TEST_RESULT -eq 0 ]; then chmod +x ./cf_blue_green_travis.sh; sudo
+  add-apt-repository -y ppa:ubuntu-toolchain-r/test; sudo apt-get -qq update; sudo
+  apt-get -qq install g++-4.8; sudo ./cf_blue_green_travis.sh; fi
 sudo: required
