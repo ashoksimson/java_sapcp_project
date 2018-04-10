@@ -15,16 +15,7 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
- <plugins> 
-    <plugin>
-    <artifactId>maven-war-plugin</artifactId>
-    <version>3.0.0</version>
-      <configuration>
-      <warSourceDirectory>WebContent</warSourceDirectory>
-      <outputDirectory>/tmp</outputDirectory>
-      </configuration>
-  </plugin>
-  </plugins>
+
     <properties>
 
     <sap.cloud.api>${env.CF_API}</sap.cloud.api>
@@ -40,6 +31,15 @@
       <build>
         <finalName>hello-world</finalName>
         <plugins>
+          
+    <plugin>
+    <artifactId>maven-war-plugin</artifactId>
+    <version>3.0.0</version>
+      <configuration>
+      <warSourceDirectory>WebContent</warSourceDirectory>
+      <outputDirectory>/tmp</outputDirectory>
+      </configuration>
+  </plugin>
           <plugin>
             <groupId>org.cloudfoundry</groupId>
             <artifactId>cf-maven-plugin</artifactId>
