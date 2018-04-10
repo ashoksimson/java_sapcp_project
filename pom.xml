@@ -23,6 +23,15 @@
       <outputDirectory>/tmp</outputDirectory>
       </configuration>
   </plugin>
+    <properties>
+
+    <sap.cloud.api>${env.CF_API}</sap.cloud.api>
+    <sap.cloud.org>${env.CF_ORGANIZATION}</sap.cloud.org>
+    <sap.cloud.space>${env.CF_SPACE}</sap.cloud.space>
+    <sap.cloud.username>${env.CF_USERNAME}</sap.cloud.username>
+    <sap.cloud.password>${env.CF_PASSWORD}</sap.cloud.password>
+
+  </properties>
   <profiles>
     <profile>
       <id>cloud-integration-tests</id>
