@@ -15,6 +15,7 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
+ <plugins> 
     <plugin>
     <artifactId>maven-war-plugin</artifactId>
     <version>3.0.0</version>
@@ -23,6 +24,7 @@
       <outputDirectory>/tmp</outputDirectory>
       </configuration>
   </plugin>
+  </plugins>
     <properties>
 
     <sap.cloud.api>${env.CF_API}</sap.cloud.api>
@@ -63,11 +65,4 @@
         </plugins>
       </build>
     </profile>
-  </profiles>
-<!--  <distributionManagement>
-    <snapshotRepository>
-      <id>nexusCIProcess</id>
-      <url>http://<your nexus host>:8081/nexus/content/repositories/snapshots</url>
-    </snapshotRepository>
-  </distributionManagement> -->  
 </project>
