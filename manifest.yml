@@ -1,4 +1,4 @@
 ---
 applications:
-- name: hello-world
+- name: hello-world-retest
   memory: 128M
