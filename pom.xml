@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.sap.cloud.sample</groupId>
-      <artifactId>hello-world</artifactId>
+      <artifactId>hello-world-retest</artifactId>
   <packaging>war</packaging>
     <version>1.0.0</version>
    
@@ -299,7 +299,7 @@
               <password>${sap.cloud.password}</password>
               <space>${sap.cloud.space}</space>
               <org>${sap.cloud.org}</org>
-              <appname>hello-world</appname>
+              <appname>hello-world-retest</appname>
             </configuration>
             <executions>
               <execution>
