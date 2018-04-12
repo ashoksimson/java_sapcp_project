@@ -1,69 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>company.org</groupId>
-  <artifactId>halloworld</artifactId>
-  <packaging>jar</packaging>
-  <version>1.0-SNAPSHOT</version>
-  <name>halloworld</name>
-  <url>http://maven.apache.org</url>
-  <dependencies>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.11</version>
-      <scope>test</scope>
-    </dependency>
-  </dependencies>
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
 
-    <properties>
+    <parent>
+        <groupId>com.sap.cloud.sample</groupId>
+        <artifactId>sdk-samples-parent</artifactId>
+        <version>1.0.0</version>
+        <relativePath>..</relativePath>
+    </parent>
 
-    <sap.cloud.api>${env.CF_API}</sap.cloud.api>
-    <sap.cloud.org>${env.CF_ORGANIZATION}</sap.cloud.org>
-    <sap.cloud.space>${env.CF_SPACE}</sap.cloud.space>
-    <sap.cloud.username>${env.CF_USERNAME}</sap.cloud.username>
-    <sap.cloud.password>${env.CF_PASSWORD}</sap.cloud.password>
+    <artifactId>hello-world</artifactId>
+    <packaging>war</packaging>
 
-  </properties>
-  <profiles>
-    <profile>
-      <id>cloud-integration-tests</id>
-      <build>
-        <finalName>hello-world</finalName>
-        <plugins>
-          
-    <plugin>
-    <artifactId>maven-war-plugin</artifactId>
-    <version>3.0.0</version>
-      <configuration>
-      <warSourceDirectory>WebContent</warSourceDirectory>
-      <outputDirectory>/tmp</outputDirectory>
-      </configuration>
-  </plugin>
-          <plugin>
-            <groupId>org.cloudfoundry</groupId>
-            <artifactId>cf-maven-plugin</artifactId>
-            <version>1.0.4</version>
-            <configuration>
-              <target>${sap.cloud.api}</target>
-              <username>${sap.cloud.username}</username>
-              <password>${sap.cloud.password}</password>
-              <space>${sap.cloud.space}</space>
-              <org>${sap.cloud.org}</org>
-              <appname>hello-world-retest</appname>
-            </configuration>
-            <executions>
-              <execution>
-                <id>deploying-application</id>
-                <phase>package</phase>
-                <goals>
-                  <goal>push</goal>
-                </goals>
-              </execution>
-            </executions>
-          </plugin>
-        </plugins>
-      </build>
-    </profile>
-    </profiles>
+    <description>This is a simple HelloWorld Web application.</description>
+    <licenses>
+        <license>
+            <name>SAP DEVELOPER LICENSE AGREEMENT</name>
+            <url>https://tools.hana.ondemand.com/developer-license-3.1.txt</url>
+        </license>
+    </licenses>
 </project>
