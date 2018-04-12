@@ -24,11 +24,11 @@
     <sap.cloud.space>${env.CF_SPACE}</sap.cloud.space>
     <sap.cloud.username>${env.CF_USERNAME}</sap.cloud.username>
     <sap.cloud.password>${env.CF_PASSWORD}</sap.cloud.password>
+             <!-- Property setting source encoding to UTF-8 -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
   </properties>
-          <properties>
-        <!-- Property setting source encoding to UTF-8 -->
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+     
         
 
         
