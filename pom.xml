@@ -86,10 +86,6 @@
         </dependency>
     </dependencies>
 
-    <modules>
-        <module>hello-world</module>
-    </modules>
-
     <build>
         <!-- Map the Eclipse file system layout to the Maven plug-ins -->
         <sourceDirectory>${project.basedir}/src</sourceDirectory>
