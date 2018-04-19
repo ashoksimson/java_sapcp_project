@@ -63,7 +63,7 @@
       <!--  <dependency>
             <groupId>httpunit</groupId>
             <artifactId>httpunit</artifactId>
-            <version>1.6.2</version> <!-- Do NOT use 1.7 as it submits form twice 
+            <version>1.6.2</version> 
             <scope>test</scope>
         </dependency>
         <dependency>
