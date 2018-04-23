@@ -55,26 +55,26 @@ cf push -f manifest_prod.yml -p /tmp/hello-world-retest.war
 echo "Post Deploy Blue to Prod"
 
 # Set the application name in BLUE variable
-BLUE=$CF_APP 
+#BLUE=$CF_APP 
 
 # Green variable will store a temporary name for the application 
-GREEN="${BLUE}-B"
+#GREEN="${BLUE}-B"
 
 # Pull the up-to-date manifest from the BLUE (existing) application
-MANIFEST=$(mktemp -t "${BLUE}_manifestXXXXXXX.temp")
+#MANIFEST=$(mktemp -t "${BLUE}_manifestXXXXXXX.temp")
 
 # Create the new manifest file for deployment
-cf create-app-manifest $BLUE -p $MANIFEST
+#cf create-app-manifest $BLUE -p $MANIFEST
     
 # Find and replace the application name (to the name stored in green variable) in the manifest file
-sed -i -e "s/: ${BLUE}/: ${GREEN}/g" $MANIFEST
-sed -i -e "s?path: ?path: $CURRENTPATH/?g" $MANIFEST
+#sed -i -e "s/: ${BLUE}/: ${GREEN}/g" $MANIFEST
+#sed -i -e "s?path: ?path: $CURRENTPATH/?g" $MANIFEST
 
 trap on_fail ERR
     
 # Prepare the URL of the green application
 DOMAIN=$CF_DOMAIN
-cf push -f $MANIFEST -p /tmp/$CF_APP.war
+#cf push -f $MANIFEST -p /tmp/$CF_APP.war
 GREENURL=https://${GREEN}.${DOMAIN}
     
 # Check the URL to find if it fails
