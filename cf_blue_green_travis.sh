@@ -47,7 +47,7 @@ CURRENTPATH=$(pwd)
 
 # Deploy Blue to Prod
 echo "Deploy Blue to Prod"
-cf push $CF_APP
+#cf push $CF_APP
 echo "Post Deploy Blue to Prod"
 
 # Set the application name in BLUE variable
