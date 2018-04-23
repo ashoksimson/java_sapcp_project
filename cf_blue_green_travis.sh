@@ -73,20 +73,20 @@ echo "Post Deploy Blue to Prod"
 trap on_fail ERR
     
 # Prepare the URL of the green application
-DOMAIN=$CF_DOMAIN
+#DOMAIN=$CF_DOMAIN
 #cf push -f $MANIFEST -p /tmp/$CF_APP.war
-GREENURL=https://${GREEN}.${DOMAIN}
+#GREENURL=https://${GREEN}.${DOMAIN}
     
 # Check the URL to find if it fails
-curl --fail -I -k $GREENURL
+#curl --fail -I -k $GREENURL
 
 # Reroute the application URL to the green process
-cf routes | tail -n +4 | grep $BLUE | awk '{print $3" -n "$2}' | xargs -n 3 cf map-route $GREEN
+#cf routes | tail -n +4 | grep $BLUE | awk '{print $3" -n "$2}' | xargs -n 3 cf map-route $GREEN
 
 # Perform deletion of old application and rename the green process to blue 
-cf delete $BLUE -f
-cf rename $GREEN $BLUE
-cf delete-route $DOMAIN -n $GREEN -f
+#cf delete $BLUE -f
+#cf rename $GREEN $BLUE
+#cf delete-route $DOMAIN -n $GREEN -f
 
 # Clean up
 finally
