@@ -1,1 +1,4 @@
-
+---
+applications:
+- name: hello-world-retest-prod
+  memory: 128M
