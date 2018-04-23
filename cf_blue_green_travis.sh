@@ -50,7 +50,7 @@ CF_APP=hello-world-ashok
 # Deploy Blue to Prod
 echo "Deploy Blue to Prod"
 #cf push $CF_APP
-cf push hello-world-ashok -p /tmp/hello-world-retest.war -m 128M
+cf push hello-world-ashok -p /tmp/hello-world-retest.war
 
 echo "Post Deploy Blue to Prod"
 
@@ -64,7 +64,7 @@ GREEN="${BLUE}-B"
 MANIFEST=$(mktemp -t "${BLUE}_manifestXXXXXXX.temp")
 
 # Create the new manifest file for deployment
-cf create-app-manifest $BLUE -p $MANIFEST
+#cf create-app-manifest $BLUE -p $MANIFEST
     
 # Find and replace the application name (to the name stored in green variable) in the manifest file
 sed -i -e "s/: ${BLUE}/: ${GREEN}/g" $MANIFEST
@@ -81,7 +81,7 @@ GREENURL=https://${GREEN}.${DOMAIN}
 curl --fail -I -k $GREENURL
 
 # Reroute the application URL to the green process
-cf routes | tail -n +4 | grep $BLUE | awk '{print $3" -n "$2}' | xargs -n 3 cf map-route $GREEN
+#cf routes | tail -n +4 | grep $BLUE | awk '{print $3" -n "$2}' | xargs -n 3 cf map-route $GREEN
 
 # Perform deletion of old application and rename the green process to blue 
 cf delete $BLUE -f
