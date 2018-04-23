@@ -2,4 +2,3 @@
 applications:
 - name: hello-world-retest
   memory: 128M
-  random-route: true
