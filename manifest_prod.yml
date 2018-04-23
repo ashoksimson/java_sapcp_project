@@ -1,4 +1,4 @@
 ---
 applications:
-- name: hello-world-retest-prod
+- name: hello-world-retest-ashok
   memory: 256M
