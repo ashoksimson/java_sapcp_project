@@ -58,10 +58,10 @@ echo "Post Deploy Blue to Prod"
 BLUE=$CF_APP 
 
 # Green variable will store a temporary name for the application 
-GREEN="${BLUE}-B"
+#GREEN="${BLUE}-B"
 
 # Pull the up-to-date manifest from the BLUE (existing) application
-MANIFEST=$(mktemp -t "${BLUE}_manifestXXXXXXX.temp")
+#MANIFEST=$(mktemp -t "${BLUE}_manifestXXXXXXX.temp")
 
 # Create the new manifest file for deployment
 #cf create-app-manifest $BLUE -p $MANIFEST
