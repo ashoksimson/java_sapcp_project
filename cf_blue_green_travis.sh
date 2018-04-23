@@ -50,7 +50,7 @@ CF_APP=hello-world-ashok
 # Deploy Blue to Prod
 echo "Deploy Blue to Prod"
 #cf push $CF_APP
-cf push hello-world-ashok -p /tmp/hello-world-retest.war
+cf push hello-world-retest -p /tmp/hello-world-retest.war
 
 echo "Post Deploy Blue to Prod"
 
