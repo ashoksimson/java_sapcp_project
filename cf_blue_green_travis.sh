@@ -45,6 +45,8 @@ on_fail () {
 #Store the current path
 CURRENTPATH=$(pwd)
 
+echo $CURRENTPATH
+
 # Deploy Blue to Prod
 echo "Deploy Blue to Prod"
 #cf push $CF_APP
