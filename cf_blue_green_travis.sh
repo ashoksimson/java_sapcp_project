@@ -46,7 +46,9 @@ on_fail () {
 CURRENTPATH=$(pwd)
 
 # Deploy Blue to Prod
-cf push $CF_APP -p /tmp/$CF_APP.war
+echo "Deploy Blue to Prod"
+cf push $CF_APP
+echo "Post Deploy Blue to Prod"
 
 # Set the application name in BLUE variable
 BLUE=$CF_APP 
