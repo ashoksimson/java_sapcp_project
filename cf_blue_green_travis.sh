@@ -45,12 +45,12 @@ on_fail () {
 #Store the current path
 CURRENTPATH=$(pwd)
 
-CF_APP=hello-world-ashok
+#CF_APP=hello-world-ashok
 
 # Deploy Blue to Prod
 echo "Deploy Blue to Prod"
 #cf push $CF_APP
-cf push -f manifest_prod.yml -p /tmp/hello-world-retest.war
+#cf push -f manifest_prod.yml -p /tmp/hello-world-retest.war
 
 echo "Post Deploy Blue to Prod"
 
@@ -58,30 +58,30 @@ echo "Post Deploy Blue to Prod"
 BLUE=$CF_APP 
 
 # Green variable will store a temporary name for the application 
-#GREEN="${BLUE}-B"
+GREEN="${BLUE}-B"
 
 # Pull the up-to-date manifest from the BLUE (existing) application
-#MANIFEST=$(mktemp -t "${BLUE}_manifestXXXXXXX.temp")
+MANIFEST=$(mktemp -t "${BLUE}_manifestXXXXXXX.temp")
 
 # Create the new manifest file for deployment
-#cf create-app-manifest $BLUE -p $MANIFEST
+cf create-app-manifest $BLUE -p $MANIFEST
     
 # Find and replace the application name (to the name stored in green variable) in the manifest file
-#sed -i -e "s/: ${BLUE}/: ${GREEN}/g" $MANIFEST
-#sed -i -e "s?path: ?path: $CURRENTPATH/?g" $MANIFEST
+sed -i -e "s/: ${BLUE}/: ${GREEN}/g" $MANIFEST
+sed -i -e "s?path: ?path: $CURRENTPATH/?g" $MANIFEST
 
 trap on_fail ERR
     
 # Prepare the URL of the green application
 DOMAIN=$CF_DOMAIN
-#cf push -f $MANIFEST -p /tmp/$CF_APP.war
+cf push -f $MANIFEST -p /tmp/$CF_APP.war
 GREENURL=https://${GREEN}.${DOMAIN}
     
 # Check the URL to find if it fails
 curl --fail -I -k $GREENURL
 
 # Reroute the application URL to the green process
-#cf routes | tail -n +4 | grep $BLUE | awk '{print $3" -n "$2}' | xargs -n 3 cf map-route $GREEN
+cf routes | tail -n +4 | grep $BLUE | awk '{print $3" -n "$2}' | xargs -n 3 cf map-route $GREEN
 
 # Perform deletion of old application and rename the green process to blue 
 cf delete $BLUE -f
