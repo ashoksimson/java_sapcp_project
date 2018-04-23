@@ -50,7 +50,7 @@ CF_APP=hello-world-ashok
 # Deploy Blue to Prod
 echo "Deploy Blue to Prod"
 #cf push $CF_APP
-cf push hello-world-retest -p /tmp/hello-world-retest.war
+cf push -f manifest_prod.yml -p /tmp/hello-world-retest.war
 
 echo "Post Deploy Blue to Prod"
 
@@ -67,14 +67,14 @@ BLUE=$CF_APP
 #cf create-app-manifest $BLUE -p $MANIFEST
     
 # Find and replace the application name (to the name stored in green variable) in the manifest file
-sed -i -e "s/: ${BLUE}/: ${GREEN}/g" $MANIFEST
-sed -i -e "s?path: ?path: $CURRENTPATH/?g" $MANIFEST
+#sed -i -e "s/: ${BLUE}/: ${GREEN}/g" $MANIFEST
+#sed -i -e "s?path: ?path: $CURRENTPATH/?g" $MANIFEST
 
 trap on_fail ERR
     
 # Prepare the URL of the green application
 DOMAIN=$CF_DOMAIN
-cf push -f $MANIFEST -p /tmp/$CF_APP.war
+#cf push -f $MANIFEST -p /tmp/$CF_APP.war
 GREENURL=https://${GREEN}.${DOMAIN}
     
 # Check the URL to find if it fails
