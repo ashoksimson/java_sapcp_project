@@ -45,12 +45,12 @@ on_fail () {
 #Store the current path
 CURRENTPATH=$(pwd)
 
-echo $CURRENTPATH
+CF_APP=hello-world-prod
 
 # Deploy Blue to Prod
 echo "Deploy Blue to Prod"
 #cf push $CF_APP
-cf push hello-world-ashok -p /tmp/hello-world-retest.war
+cf push hello-world-prod -p /tmp/hello-world-retest.war
 
 echo "Post Deploy Blue to Prod"
 
