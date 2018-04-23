@@ -50,7 +50,7 @@ CURRENTPATH=$(pwd)
 # Deploy Blue to Prod
 echo "Deploy Blue to Prod"
 #cf push $CF_APP
-#cf push -f manifest_prod.yml -p /tmp/hello-world-retest.war
+cf push -f manifest_prod.yml -p /tmp/hello-world-retest.war
 
 echo "Post Deploy Blue to Prod"
 
