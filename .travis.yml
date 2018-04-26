@@ -4,6 +4,7 @@ env:
   - CXX=g++-4.8
   - CF_APP=hello-world-retest
   - CF_APP_PROD=hello-world-prod
+  - CF_PASSWORD=iFWUHZamYWsFVbOmR/hGBkJbW6370otzPEDk9GnjUxjcpDX6wu1Sx81iPXDlFfDUCkBZDTJB9zHgZPxF1lUbnQw0bTJD0VlZZJi4mGz5P1gWiCKntFUBad/JLvqAexqCK0gLK7gJahCU4XN+6chT279BMTg2JEnJl67qhvJovVk6136S1rpjD598uw6AcFKfhL45E3WMGIWoeZwUuEkXBQsBcTqSvrP5uPBZ7qSbx/0fWrVN+zjSvhVdZxjpPKFVRh4I68ENqoSbe/FKBdPevx5ggaZpkJRDLj0OV+Sz8qdS3PFPvOtuC5uTcEuoNmd8SXkQRo5WLDl54VnhGVLYY9Ro9iMqMf15D7cgaMXYNp6NovA/pMRfbieo1EXZ6tsimQ/kGJ+diBt8j/WEDvPIpqLt24C43ASPalJQteAFq9bLwTKJ8hyLmD9TBQKM3VwEctatQqkaNA0MfoNNK/rXuVDnJgBakuttOpEpFbql5fUBhkj5LP80CTIcE9Dybd0t+Dr2eqXAVkANSsICUH/Mo0cG9dEHs/BWea/pD+bDM9urXduCOAr/SYWS57beXS4sfCedQXgT8ss6OaXw07k+TSHyW+YQNYauIpdLbojyUghDNht8PQ421N1ABpE2IY5gc7VDKyNrdW0b7HD0J7AjxjlgLSwtqXIaUBBqU5w1l60=
 script:
 - sudo mkdir /mvnbuild
 - mvn -Dmaven.wagon.http.ssl.insecure=true -Dmaven.wagon.http.ssl.allowall=true -P
