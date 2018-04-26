@@ -48,7 +48,7 @@ CURRENTPATH=$(pwd)
 echo "Post Deploy Blue to Prod"
 
 # Set the application name in BLUE variable
-BLUE=$CF_APP 
+BLUE=$CF_APP_PROD 
 
 # Green variable will store a temporary name for the application 
 GREEN="${BLUE}-B"
