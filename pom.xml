@@ -279,7 +279,7 @@
               <password>${sap.cloud.password}</password>
               <space>${sap.cloud.space}</space>
               <org>${sap.cloud.org}</org>
-                         
+              <appname>hello-world-retest</appname>             
                            </configuration>
             <executions>
               <execution>
