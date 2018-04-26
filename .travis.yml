@@ -8,7 +8,7 @@ env:
 script:
 - sudo mkdir /mvnbuild
 - mvn -Dmaven.wagon.http.ssl.insecure=true -Dmaven.wagon.http.ssl.allowall=true -P
-  cloud-integration-tests cf:push -f manifest.yml -Denv.CF_API=$CF_API -Denv.CF_ORGANIZATION=$CF_ORGANIZATION
+  cloud-integration-tests -Denv.CF_API=$CF_API -Denv.CF_ORGANIZATION=$CF_ORGANIZATION
   -Denv.CF_SPACE=$CF_SPACE -Denv.CF_USERNAME=$CF_USERNAME -Denv.CF_PASSWORD=$CF_PASSWORD
 after_success:
 - mvn -Dmaven.wagon.http.ssl.insecure=true -Dmaven.wagon.http.ssl.allowall=true -P
